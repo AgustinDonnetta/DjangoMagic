@@ -1,0 +1,37 @@
+{% extends "mtg/base.html" %}
+{% block title %}Match turns{% endblock %}
+{% block content %}
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">turn number</th>
+        <th scope="col">player</th>
+        <th scope="col">play land</th>
+        <th scope="col">play creatures</th>
+        <th scope="col">another thing</th>
+        <th scope="col">attack</th>
+        <th scope="col">player 1 life</th>
+        <th scope="col">player 2 life</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for Turn in turns %}
+      <tr>
+        <th scope="row">{{ Turn.turn_number }}</th>
+        <td>{{ Turn.player }}</td>
+        <td>{{ Turn.play_land }}</td>  
+        <td>{{ Turn.play_creatures }}</td> 
+        <td>{{ Turn.play_another_thing }}</td> 
+        <td>{{ Turn.attack }}</td> 
+        <td>{{ Turn.player_1_life }}</td> 
+        <td>{{ Turn.player_2_life }}</td>
+        <td><a href="{% url 'turn-edit' %}">Edit</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'turn-create' %}"><button class="btn"> Add new turn</button></a> 
+
+{% endblock content %}

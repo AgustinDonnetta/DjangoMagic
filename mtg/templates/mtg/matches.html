@@ -1,0 +1,37 @@
+{% extends "mtg/base.html" %}
+{% block title %}Matches{% endblock %}
+{% block content %}
+<br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Match number</th>
+        <th scope="col">Player 1</th>
+        <th scope="col">Player 2</th>
+        <th scope="col">date</th>
+        <th scope="col">Winner</th>
+        <th scope="col">Status</th>
+        <th scope="col">Is active?</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for Match in matches %}
+      <tr>
+        <th scope="row">{{ Match.id }}</th>
+        <td>{{ Match.player_1 }}</td>
+        <td>{{ Match.player_2 }}</td>
+        <td>{{ Match.date }}</td>
+        <td>{{ Match.winner }}</td>
+        <td>{{ Match.status_2 }}</td>
+        <td>{{ Match.is_active }}</td>
+        <td><a href="{% url 'match-edit' Match.id %} ">Edit</a></td>
+        <td><a href="{% url 'match-delete' Match.id %}">Delete</a></td>
+        <td><a href="{% url 'turns' Match.id %}">Turns</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'match-create' %}"><button class="btn"> Add new Match</button></a> 
+{% endblock content %}

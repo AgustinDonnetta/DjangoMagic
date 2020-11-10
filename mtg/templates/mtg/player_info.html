@@ -1,0 +1,14 @@
+{% extends "mtg/base.html" %}
+{% block title %}Player Info{% endblock %}
+{% block content %}
+        <h4>Name: {{ Player.full_name }}</h4>
+        <p>DNI: {{ Player.DNI }}</p>
+        <p>Born date: {{ Player.born_date }}</p>
+        <p>Active player?: {{ Player.is_active }}</p> 
+        {% if  Player.image  %}
+        <div>
+        Profile image:
+        </div>
+        <img src="{{ Player.image.url }}" alt="">  
+        {% endif %}
+  {% endblock content %}

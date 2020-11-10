@@ -1,0 +1,11 @@
+{% extends "mtg/base.html" %}
+{% block title %}Player Create{% endblock %}
+{% block content %}
+<form method="POST" enctype="">
+    {% csrf_token %}
+        {{ p_form.as_p }}
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Create</button>
+    </div>
+</form>
+{% endblock content %}
